@@ -22,7 +22,7 @@ file(GLOB mariadbclientpp_PRIVATE_HEADERS src/*.hpp)
 file(GLOB mariadbclientpp_SOURCES src/*.cpp)
 
 # set up target
-add_library(mariadbclientpp ${mariadbclientpp_SOURCES} ${mariadbclientpp_PUBLIC_HEADERS} ${mariadbclientpp_PRIVATE_HEADERS})
+add_library(mariadbclientpp SHARED ${mariadbclientpp_SOURCES} ${mariadbclientpp_PUBLIC_HEADERS} ${mariadbclientpp_PRIVATE_HEADERS})
 
 # target options
 target_link_libraries(mariadbclientpp ${MariaDBClient_LIBRARIES} pthread)

@@ -160,7 +160,7 @@ u64 connection::execute(const std::string& query) {
 
     int status;
     do {
-        MYSQL_RES* result = mysql_store_result(m_mysql);
+        MYSQL_RES* result = mysql_use_result(m_mysql);
 
         if (result)
             mysql_free_result(result);

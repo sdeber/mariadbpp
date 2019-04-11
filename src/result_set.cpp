@@ -19,7 +19,7 @@
 using namespace mariadb;
 
 result_set::result_set(connection *connection)
-    : m_result_set(mysql_store_result(connection->m_mysql)),
+    : m_result_set(mysql_use_result(connection->m_mysql)),
       m_fields(nullptr),
       m_row(nullptr),
       m_raw_binds(nullptr),
