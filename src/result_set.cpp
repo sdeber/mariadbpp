@@ -47,8 +47,9 @@ result_set::result_set(const statement_data_ref &stmt_data)
       m_was_fetched(false) {
 
     int max_length = 1;
+	int prefetch_rows = 500000;
     mysql_stmt_attr_set(stmt_data->m_statement, STMT_ATTR_UPDATE_MAX_LENGTH, &max_length);
-
+	mysql_stmt_attr_set(stmt_data->m_statement, STMT_ATTR_PREFETCH_ROWS, &prefetch_rows);
     if (mysql_stmt_store_result(stmt_data->m_statement))
         STMT_ERROR(stmt_data->m_statement)
     else {
